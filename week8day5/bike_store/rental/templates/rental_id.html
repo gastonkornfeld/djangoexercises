@@ -1,0 +1,30 @@
+<h1>Rental by id page {{id}}</h1>
+
+
+
+<div>
+
+    <h2>Customer details</h2>
+    
+    <p>Customer name {{rental.customer.firs_name}} {{rental.customer.last_name}}</p>
+    <p>Customer number {{rental.customer.phone_number}}</p>
+    <p>Customer Adress: {{rental.customer.address}} {{rental.customer.city}} {{rental.customer.country}}</p>
+    <p>Customer email: {{rental.customer.email}}</p>
+
+    
+
+    <h3>rental details</h3>
+    <p>Rent date:  {{rental.rental_date}}</p>
+    <p>Return date:  {{rental.return_date}}</p>
+
+    <h2>
+    Vehicle details
+    </h2>
+    <p>Vehicle Cost:  {{rental.vehicle.real_cost}}</p>
+    <p>Vehicle Size:  {{rental.vehicle.vehicle_size.name}}</p>
+    <p>Vehicle type:  {{rental.vehicle.vehicle_type.name}}</p>
+
+
+</div>
+
+

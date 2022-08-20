@@ -1,0 +1,55 @@
+
+
+{% extends './partials/base.html'%}
+
+
+
+{% block content %}
+    <h2>User data</h2>
+
+    {% if user.is_authenticated %}
+
+    <p>your name is: {{user.username}} </p>
+    {% else %}
+
+    <p>You are not logged in</p>
+
+    {% endif %}
+
+    {% if user.is_superuser %}
+        <p>hello super user</p>
+    {% endif %}
+
+    
+
+
+    <h2>List of Films</h2>
+    {% for film in films %}
+        <div style="border: 1px solid black;">
+            <p>Title: {{film.title}}</p>
+            <p>Release Date: {{film.release_date}}</p>
+            <p>Creation Country: {{film.created_in}}</p>
+            <p>Categories:
+            {% for cat in film.categories.all %}
+                {{cat.name}}.
+            {% endfor%}</p>
+            <p>
+            Directors:
+            {% for dir in film.directors.all %}
+                <p>{{dir.first_name}} {{dir.last_name}}.</p>
+                    {% if user.is_authenticated %}
+
+                    <a href="{% url 'edit_director' dir.id %}"><button>Edit Director</button></a>
+                    {% endif %}
+            {% endfor%}
+            <p>Film ID {{film.id}}</p>
+            <a href="{% url 'edit_film' film.id %}"><button>Edit Film</button></a>
+            </p>
+
+        </div>
+
+
+    {%endfor%}
+
+{% endblock %}
+

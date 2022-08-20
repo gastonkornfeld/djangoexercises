@@ -1,0 +1,29 @@
+
+
+
+<h1> All Rentals page</h1>
+
+
+
+<ol>
+{% for rental in all_rentals%}
+    <li>
+        <ul>
+            <li>
+                Rental date: {{rental.rental_date}}
+            </li>
+            <li>
+                Return date: {{rental.return_date}}
+
+            </li>
+            <li>
+                Customer: {{rental.customer}}
+            </li>
+
+        </ul>
+    </li>
+
+{% endfor%}
+
+</ol>
+

@@ -1,0 +1,23 @@
+
+
+<h1>add a customer</h1>
+
+
+
+<form method="POST">
+    {% csrf_token %}
+
+    <table>
+      {{form.as_table}}
+    </table>
+    <input type="submit" value="Add rental">
+  </form>
+
+  {% if formInfo %}
+      {% for info in formInfo %} 
+      <ul class="list">
+          <li>{{ info }}</li>
+      </ul>
+      {% endfor %} 
+  {% endif %} 
+

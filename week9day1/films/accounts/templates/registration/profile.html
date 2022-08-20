@@ -1,0 +1,27 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'partials/navbar.html' %}
+
+    <h2>User data</h2>
+
+    {% if user.is_authenticated %}
+
+    <p>your name is: {{user.username}}</p>
+    {% else %}
+
+    <p>You are not logged in</p>
+
+    {% endif %}
+
+</body>
+</html>

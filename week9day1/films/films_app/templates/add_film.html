@@ -1,0 +1,50 @@
+
+
+{% extends './partials/base.html'%}
+
+{% block content %}
+<!-- <form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Submit">
+</form> -->
+
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.title.errors }}
+        <label for="id_subject">Title:</label>
+        {{ form.title }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.release_date.errors }}
+        <label for="id_message"> release_date:</label>
+        {{ form.release_date }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.created_in.errors }}
+        <label for="id_sender">created_in:</label>
+        {{ form.created_in }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.available_in.errors }}
+        <label for="id_cc_myself">available_in:</label>
+        {{ form.available_in }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.categories.errors }}
+        <label for="id_cc_myself">categories:</label>
+        {{ form.categories }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.directors.errors }}
+        <label for="id_cc_myself">directors:</label>
+        {{ form.directors }}
+    </div>
+    <p><input type="submit" value="Add Film" /></p>
+</form>
+
+{% endblock %}

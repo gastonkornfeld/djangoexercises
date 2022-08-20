@@ -1,0 +1,41 @@
+
+
+{% extends "index.html" %}
+
+
+
+<div>
+    <h3>add a book</h3>
+    <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">ADD</button>
+    </form>
+</div>
+
+
+
+{% block content %}
+
+
+
+
+<h1>{{ "All books" | upper }}</h1>
+
+    {% for book in books %}
+        <p>
+            {{ "Title:" | upper }} {{ book.title | upper }}
+        </p>
+        <p>
+            {{"Pub-Date:" | upper}} {{ book.pub_date }}
+        </p>
+        <a href=./delete/{{book.id}}><button>Delete</button></a>
+    {% endfor %}
+
+
+
+
+{% endblock %}
+
+
+

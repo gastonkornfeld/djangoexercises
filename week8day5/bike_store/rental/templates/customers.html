@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+
+
+
+<h1>all customers</h1>
+
+
+{% for customer in customers %}
+
+<div style="border: 1px solid rgb(115, 143, 102); width : 100vw; height: 100vh; padding: 2px; margin: 3px 3px;">
+    <p>{{customer.firs_name}}</p>
+    <p>{{customer.last_name}}</p>
+    <p>{{customer.phone_number}}</p>
+    <p>{{customer.email}}</p>
+    <p>{{customer.address}}</p>
+    <p>{{customer.city}}</p>
+    <p>{{customer.country}}</p>
+
+
+    <h2>Rentals: </h2>
+    
+    {{ customer.rentals.all}}
+
+
+    {% for rent in customer.rentals.all %}
+    <ul>
+        <li>
+            Rental-date: {{rent.rental_date}}
+        </li>
+        <li>
+            return_date: {{rent.return_date}}
+        </li>
+        <li>
+            vehicle: {{rent.vehicle}}
+        </li>
+    </ul>   
+
+    {% endfor %}
+    
+    
+    
+    
+</div>
+    
+
+
+
+{% endfor %}
